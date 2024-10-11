@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/tmodify/styles.css')}}">
+    <title>Cargar, modificar territorios</title>
+</head>
+<body>
+    <a href="{{ url_for('login')}}"> Ingresar </a>
+    <h1>Informe de territorios</h1>
+    <div class="info-block">
+        <p>Esto sirve para que puedas subir los territorios y nosotros ya poder trabajar mejor, sabiendo que se hizo y que no. Gracias por tu ayuda.</p>
+    </div>
+        
+        
+    <div id="modifyForm" style="display:block;">
+        <form method="post">
+            <input type="number" name="number" placeholder="Territorio" required>
+            <input type="hidden" name="number" value="{{ number }}"> <!-- Para enviar el número al servidor -->
+            <input type="text" name="uvezc" placeholder="Fecha cuando se comenzó">
+            <input type="text" name="uvezf" placeholder="Fecha cuando se terminó">
+            <input type="text" name="her" placeholder="Hermano asignado">
+            <input type="text" name="note" placeholder="Notas sobre el territorio">
+            <input type="submit" value="Modificar el territorio">
+        </form>
+    </div>
+
+</body>
+</html>

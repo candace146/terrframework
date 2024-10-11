@@ -1,0 +1,99 @@
+body {
+    font-family: 'Product Sans', Arial, Helvetica, sans-serif;
+}
+
+
+
+.title{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+
+#modalInfo {
+    text-align: center; /* Center the title */
+}
+
+.modal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Fijo en la ventana */
+    z-index: 1; /* Por encima de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Alto completo */
+    overflow: auto; /* Habilitar desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Espaciado superior */
+    padding: 20px; 
+    border: 1px solid #888;
+    max-width: 1000px; /* Ancho máximo */
+    width: auto; /* Cambia a auto */
+    text-align: center; /* Centrar contenido */
+}
+
+.infoModal {
+    display: flex;
+    flex-direction: column; /* Change to column for proper alignment */
+    align-items: center; /* Center items horizontally */
+    max-width: 1000px;
+    width: 100%; /* Use full width */
+    text-align: center; /* Center text */
+}
+.close {
+
+    color: #aaa; /* Color de la "X" */
+    float: right; /* A la derecha */
+    font-size: 28px; /* Tamaño */
+    font-weight: bold; /* Negrita */
+}
+
+.close:hover,
+.close:focus {
+    color: black; /* Color al pasar */
+    text-decoration: none; /* Sin subrayado */
+    cursor: pointer; /* Cambiar el cursor */
+}
+
+
+#infoText {
+    text-align: center;
+    margin: 20px auto; /* Espaciado alrededor del bloque */
+    padding: 20px; /* Espaciado interno */
+    max-width: 600px; /* Ancho máximo del bloque */
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde del bloque */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+.button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones se ajusten a varias filas */
+    max-width: 1000px; /* Ancho máximo para las filas */
+}
+.button {
+    max-width: 150px;
+    margin: 5px; /* Espaciado entre los botones */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+    border: 1px solid grey; /* Borde del botón */
+    background-color: gainsboro; /* Color de fondo */
+    color: black; /* Color del texto */
+    border-radius: 5px; /* Bordes redondeados */
+    text-align: center; /* Centrar texto */
+    flex: 1 0 calc(16.66% - 10px); /* 6 botones por fila */
+    box-sizing: border-box; /* Incluir el padding y el border en el ancho total */
+}
+.button:hover {
+    background-color: rgb(97, 93, 93); /* Color al pasar el mouse */
+}

@@ -1,0 +1,156 @@
+/* Estilos generales */
+body {
+    font-family: 'Product Sans', sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 20px;
+    color: #333;
+    line-height: 1.6;
+}
+
+h1, h2, h3 {
+    color: #007BFF;
+    text-align: center;
+    margin-bottom: 15px; /* Espacio entre encabezados */
+}
+
+h1 {
+    margin-bottom: 30px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px; /* Más espacio para separar el formulario de otros elementos */
+}
+
+input[type="number"],
+input[type="text"],
+input[type="submit"] {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px; /* Aumentar el padding para un mejor clic */
+    margin: 10px 0;
+    border: 1px solid #007BFF;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s; /* Agregar transición de sombra */
+}
+
+input[type="number"]:focus,
+input[type="text"]:focus {
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 86, 179, 0.5); /* Sombra al enfocar */
+}
+
+input[type="submit"] {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.2s; /* Agregar transición */
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Aumentar un poco el botón al pasar el mouse */
+}
+
+/* Estilos para mostrar datos */
+
+.showdata {
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #007BFF;
+    color: white;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Estilos para la sección de modificación */
+.checkbox-container {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#modifyForm {
+    display: none;
+    background: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 700px;
+}
+
+#modifyForm input[type="text"] {
+    width: calc(100% - 22px); /* Ajustar para el padding y border */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    input[type="number"],
+    input[type="text"],
+    input[type="submit"] {
+        width: 90%;
+    }
+
+    #modifyForm {
+        width: 90%; /* Hacer el formulario de modificación más ancho en pantallas pequeñas */
+    }
+}
+
+
+
+.info-block {
+    text-align: center;
+    margin: 20px auto; /* Espaciado alrededor del bloque */
+    padding: 20px; /* Espaciado interno */
+    max-width: 600px; /* Ancho máximo del bloque */
+    background-color: #f9f9f9; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde del bloque */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+
+.alert {
+    padding: 15px;
+    margin: 20px 0;
+    border: 1px solid green;
+    background-color: #e7f9e7;
+    color: green;
+    border-radius: 5px;
+}
+
+.back-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}

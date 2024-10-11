@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Territorio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/map/styles.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+</head>
+<body>
+    <a href="{{ url_for('home')}}"> Regresar </a>
+    <h1 id="general-title">Mapa del Territorio</h1>
+    <img src="{{ url_for('static', filename='map/map.jpg')}}" alt="mapa del territorio" id="terrmap">
+    <h3 id="titleterr">Informe de cada territorio:</h3>
+    
+    <div class="button-container">
+        <form id="territoryForm" method="post">
+            {% for i in range(1, 104) %}
+                <button type="button" class="button" data-territory-id="{{ i }}">Territorio {{ i }}</button>
+            {% endfor %}
+        </form>
+    </div>
+    
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">X</span>
+            
+            <div class="infoModal">
+                <h3 id="modalInfo">Información del Territorio</h3>
+                <div id="modalData">Cargando datos...</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.button').forEach(button => {
+            button.addEventListener('click', function() {
+                const territoryId = this.getAttribute('data-territory-id');
+                openModal(territoryId);
+            });
+        });
+
+        function openModal(territoryId) {
+            document.getElementById("modalInfo").innerText = `Información del Territorio: ${territoryId}`;
+            document.getElementById("myModal").style.display = "block";
+            document.getElementById("modalData").innerHTML = "Cargando datos..."; // Mensaje de carga
+
+            // Realizar la solicitud AJAX para obtener los datos
+            fetch(`/map/`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: new URLSearchParams({
+                    'terrbutton': territoryId // Enviamos el ID del territorio
+                })
+            })
+            .then(response => {
+                console.log('Respuesta del servidor:', response); // Log para ver la respuesta
+                return response.json(); // Intentamos convertir la respuesta a JSON
+            })
+            .then(data => {
+                if (data.length > 0) {
+                    let tableHtml = '<table><tr><th>Fecha en que se comenzó</th><th>Fecha en que se terminó</th><th>Hermano asignado</th><th>Notas</th></tr>';
+                    data.forEach(entry => {
+                        tableHtml += `<tr>
+                            <td>${entry['Fecha en que se comenzo']}</td>
+                            <td>${entry['Fecha en que se termino']}</td>
+                            <td>${entry['Hermano asignado']}</td>
+                            <td>${entry['Notas']}</td>
+                        </tr>`;
+                    });
+                    tableHtml += '</table>';
+                    document.getElementById("modalData").innerHTML = tableHtml; // Actualizamos el contenido del modal
+                } else {
+                    document.getElementById("modalData").innerHTML = "No hay datos disponibles para este territorio.";
+                }
+            })
+            .catch(error => {
+                console.error('Error al cargar los datos:', error);
+                document.getElementById("modalData").innerHTML = "Error al cargar los datos.";
+            });
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Cerrar el modal al hacer clic fuera de él
+        window.onclick = function(event) {
+            if (event.target === document.getElementById("myModal")) {
+                closeModal();
+            }
+        }
+    </script>
+</body>
+</html>
