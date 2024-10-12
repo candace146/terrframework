@@ -7,7 +7,7 @@ import wrterr
 info = "[i]"
 warn = "[!]"
 okay = "[/]"
-terrdir = "E:\\Trabajo\\Proyectos\\terrframework\\terrdir\\"
+terrdir = "/home/lau/Proyectos/terrframework/terrframework/terrdir/"
 
 def signal_handler(sig, frame):
     print(f"\n{info} Saliendo del script")

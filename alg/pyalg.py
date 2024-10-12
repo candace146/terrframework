@@ -7,7 +7,7 @@ import time
 info = "[i]"
 warn = "[!]"
 okay = "[/]"
-terrdir = "E:\\Trabajo\\Proyectos\\terrframework\\terrdir\\"
+terrdir = "/home/lau/Proyectos/terrframework/terrframework/terrdir/"
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 import wrterr
@@ -56,15 +56,23 @@ def getlastdate(ruta_archivo):
 
 from datetime import datetime, timedelta
 
+from datetime import datetime, timedelta
+
 def alg(terrdir):
+    terrdir = "/home/lau/Proyectos/terrframework/terrframework/terrdir/"
     iFiles = range(1, 104)
     data = []
 
     for n in iFiles:
         flnm = f"{n}.json"
-        filespth = terrdir + flnm
+        filespth = os.path.join(terrdir, flnm)
+        print(f"Verificando archivo: {filespth}")  # Added for debugging
         lastdate_str = getlastdate(filespth)
         print(f"Última fecha para {flnm}: {lastdate_str}")
+
+        if lastdate_str is None:
+            print(f"Saltando {flnm} porque no se pudo obtener una fecha.")
+            continue  # Saltar si lastdate_str es None
 
         try:
             lastdate = datetime.strptime(lastdate_str, "%d/%m/%Y")
@@ -79,11 +87,7 @@ def alg(terrdir):
             print(f"{flnm} Candidato a poder estar en la siguiente salida")
             data.append(n)
 
-    
     return data
-        
-
-
 
 
 def main(terrdir):

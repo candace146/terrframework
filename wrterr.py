@@ -2,13 +2,12 @@ import sys
 import os
 import signal
 import json
-import ngrok
+#import ngrok
 import time
 info = "[i]"
 warn = "[!]"
 okay = "[/]"
-terrdir = "E:\\Trabajo\\Proyectos\\terrframework\\terrdir\\"
-
+terrdir = "/home/lau/Proyectos/terrframework/terrframework/terrdir/"
 
 
     

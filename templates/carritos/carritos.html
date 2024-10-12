@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Programa de Carritos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/carritos/styles.css')}}">
+    <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
+    <style>
+        .panel, .ifsecondpanel {
+            display: none; /* Oculta ambos paneles por defecto */
+        }
+    </style>
+</head>
+<body> 
+    <a href="{{ url_for('home')}}"> Regresar </a>
+    <a href="{{ url_for('carmod')}}"> Modificar programa</a>
+    <div class="general-title">
+        <h1> Programa de Carritos</h1>
+    </div>
+    <div class="carritos-data carritos-first">
+        {% if carritosProgram %}
+            {% for item in carritosProgram %}
+            <div class="button-panel parent-panel">
+                <button class="accordion">Dia: {{ item.dia }}</button>
+                <div class="panel">
+                    {% if item.detalle.segundoLugar %}
+                        <div class="grid-container">
+                            <div class="details">
+                                <p><strong>Lugar: {{ item.detalle.lugar }}</strong></p>
+                                <p>Hermano/a: {{ item.detalle.hermano }}</p>
+                                <p>Horario: {{ item.detalle.horario }}</p>
+                                <p>Notas: {{ item.detalle.notas }}</p>
+                                <hr>
+                                <p>Hermano/a: {{ item.detalle.segundoLugar.hermano }}</p>
+                                <p>Horario: {{ item.detalle.segundoLugar.horario }}</p>
+                                <p>Notas: {{ item.detalle.segundoLugar.notas }}</p>
+                            </div>
+                            {% if item.detalle2 %}
+                            <div class="details2">
+                                <p><strong>Lugar: {{ item.detalle2.lugar }}</strong></p>
+                                <p>Hermano/a: {{ item.detalle2.hermano }}</p>
+                                <p>Horario: {{ item.detalle2.horario }}</p>
+                                <p>Notas: {{ item.detalle2.notas }}</p>
+                            </div>
+                            {% if item.detalle3 %}
+                            <div class="details3">
+                                <p><strong>Lugar: {{ item.detalle3.lugar }}</strong></p>
+                                <p>Hermano/a: {{ item.detalle3.hermano }}</p>
+                                <p>Horario: {{ item.detalle3.horario }}</p>
+                                <p>Notas: {{ item.detalle3.notas }}</p>
+                            </div>
+                            {% endif %}
+                            {% endif %}
+                        </div>
+                    {% else %}
+                    <div class="grid-container">
+                        <div class="details ">
+                            <p><strong>Lugar: {{ item.detalle.lugar }}</strong></p>
+                            <p>Hermano/a: {{ item.detalle.hermano }}</p>
+                            <p>Horario: {{ item.detalle.horario }}</p>
+                            <p>Notas: {{ item.detalle.notas }}</p>
+                            {% if item.detalle.segundoLugar %}
+                            <hr>
+                            <p>Hermano/a: {{ item.detalle.segundoLugar.hermano }}</p>
+                            <p>Horario: {{ item.detalle.segundoLugar.horario }}</p>
+                            <p>Notas: {{ item.detalle.segundoLugar.notas }}</p>
+                            {% endif %}
+                        </div>
+                        {% if item.detalle2 %}
+                        <div class="details2">
+                            <p><strong>Lugar: {{ item.detalle2.lugar }}</strong></p>
+                            <p>Hermano/a: {{ item.detalle2.hermano }}</p>
+                            <p>Horario: {{ item.detalle2.horario }}</p>
+                            <p>Notas: {{ item.detalle2.notas }}</p>
+                            {% if item.detalle2.segundoLugar %}
+                            <hr>
+                            <p>Hermano/a: {{ item.detalle2.segundoLugar.hermano }}</p>
+                            <p>Horario: {{ item.detalle2.segundoLugar.horario }}</p>
+                            <p>Notas: {{ item.detalle2.segundoLugar.notas }}</p>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% if item.detalle3 %}
+                        <div class="details3">
+                            <p><strong>Lugar: {{ item.detalle3.lugar }}</strong></p>
+                            <p>Hermano/a: {{ item.detalle3.hermano }}</p>
+                            <p>Horario: {{ item.detalle3.horario }}</p>
+                            <p>Notas: {{ item.detalle3.notas }}</p>
+                            {% if item.detalle3.segundoLugar %}
+                            <hr>
+                            <p>Hermano/a: {{ item.detalle3.segundoLugar.hermano }}</p>
+                            <p>Horario: {{ item.detalle3.segundoLugar.horario }}</p>
+                            <p>Notas: {{ item.detalle3.segundoLugar.notas }}</p>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                    
+                   
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <p>No hay datos disponibles.</p>
+        {% endif %}
+    </div>
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        for (let i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                var panel = this.nextElementSibling; 
+                var sPanel = panel.nextElementSibling; // Obtener el segundo panel
+
+                if (panel.style.display === "block") {
+                    panel.style.display = "none"; // Oculta el primer panel
+                    if (sPanel) {
+                        sPanel.style.display = "none"; // Oculta el segundo panel si existe
+                    }
+                } else {
+                    panel.style.display = "block"; // Muestra el primer panel
+                    if (sPanel) {
+                        sPanel.style.display = "block"; // Muestra el segundo panel si existe
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>

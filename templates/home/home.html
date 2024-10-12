@@ -11,17 +11,32 @@
     
     <header>
         <nav>
-            <a href="{{ url_for('mpaterr') }}">Ver Mapa del Territorio</a>
-            <a href="{{ url_for('index')}}">Cargar, modificar territorios</a>
-            <a href="{{ url_for('algpage')}}"> Generador de territorios </a>
-            {% if ip %}
-                <a onclick="window.location = 'http://{{ ip }}/dps'"> Salir </a>
-            {% endif %}
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <div class="nav-links" id="nav-links">
+                <a href="{{ url_for('mpaterr') }}">Ver Mapa del Territorio</a>
+                <a href="{{ url_for('index')}}">Cargar, modificar territorios</a>
+                <a href="{{ url_for('algpage')}}">Generador de territorios</a>
+                <a href="{{ url_for('carritos')}}">Programa de carritos</a>
+                {% if ip %}
+                    <a onclick="window.location = 'http://{{ ip }}/dps'">Salir</a>
+                {% endif %}
+            </div>
         </nav>
     </header>
     <h1 id="general-title">Salidas del mes:</h1>
     <img id="salidas" src="{{ url_for('static', filename='salidas/salidas.jpeg')}}" alt="">
 
+    <script>
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navLinks = document.getElementById('nav-links');
     
+        mobileMenu.addEventListener('click', () => {
+            navLinks.classList.toggle('active'); // Alternar la clase 'active'
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,79 @@
+body {
+    font-family: 'Product Sans', Arial, Helvetica, sans-serif;
+}
+
+.general-title {
+    text-align: center;
+}
+
+.carrito-item {
+    text-align: center;
+}
+
+.accordion {
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin: 5px 0;
+    cursor: pointer;
+    padding: 10px;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    border-radius: 5px;
+}
+
+.panel {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+
+}
+
+.button-panel {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.grid-container {
+    max-width: 1000px;
+    width: 100%; /* Cambiado a 100% para ocupar todo el ancho */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.details, .details2, .details3 {
+    background-color: #f0f0f0; /* Color de fondo */
+    border: 1px solid #ccc; /* Borde */
+    border-radius: 5px;
+    padding: 20px;
+    text-align: left; /* Alinear a la izquierda */
+    margin: 0 auto; /* Centrar */
+    max-width: 390px; /* Ajusta según necesites */
+    width: 100%; /* Cambiado a 100% para que se ajuste al contenedor */
+}
+
+.centered {
+    text-align: center;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente si es necesario */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+}
+
+/* Media Queries para mejorar la responsividad */
+@media (max-width: 730px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* Cambia a una columna en pantallas pequeñas */
+    }
+
+    .details, .details2, .details3 {
+        max-width: 90%; /* Ancho completo en pantallas pequeñas */
+        padding: 15px; /* Ajusta el padding si es necesario */
+    }
+
+    .accordion {
+        font-size: 14px; /* Reduce el tamaño de fuente en pantallas pequeñas */
+    }
+}

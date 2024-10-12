@@ -8,7 +8,7 @@
     <link href="https://fonts.cdnfonts.com/css/product-sans" rel="stylesheet">
 </head>
 <body>
-    <a href="{{ url_for('home')}}"> Regresar </a>
+    <a class="return"href="{{ url_for('home')}}"> Regresar </a>
     <h1 id="general-title">Mapa del Territorio</h1>
     <img src="{{ url_for('static', filename='map/map.jpg')}}" alt="mapa del territorio" id="terrmap">
     <h3 id="titleterr">Informe de cada territorio:</h3>

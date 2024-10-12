@@ -1,0 +1,96 @@
+[
+    {
+        "dia": "Lunes",
+        "detalle": {
+            "lugar": "Plaza los Andes",
+            "hermano": "Susana B",
+            "horario": "9 a 12hs",
+            "notas" : "Susana se va a las 11",
+            "segundoLugar": {
+                "lugar": "Plaza los Andes",
+                "hermano": "Andrea C",
+                "horario": "11 a 12hs",
+                "notas" : "Viene  y toma el relevo de Susana"
+            }
+        },
+        "detalle2": {
+            "lugar" : "Alberdi",
+            "hermano" : "Hermano",
+            "horario" : "10 a 12hs",
+            "notas" : "No hay un hermano asignado"
+        }
+    },
+    {
+        "dia": "Martes",
+        "detalle": {
+            "lugar": "Alberdi & Pieres",
+            "hermano": "Mirta F y Susana B",
+            "horario": "10 a 12hs",
+            "notas": "No hay notas"
+        },
+        "detalle2": {
+            "lugar": "Alberdi & Oliden",
+            "hermano": "Antonia Perez, Estela P y Juan Lopez",
+            "horario": "14:30hs a 16:30hs",
+            "notas": "No hay notas"
+        }
+    },
+    {
+        "dia": "Jueves",
+        "detalle": {
+            "lugar": "Plaza Los Andes",
+            "hermano": "Mirta D y Dina",
+            "horario": "9 a 11hs",
+            "notas":"No hay notas"
+        },
+        "detalle2":{
+            "lugar":"Alberdi & Cafayate",
+            "hermano": "Alejandra M y Vanesa M",
+            "horario": "9:30 a 12hs",
+            "notas" :"No hay notas"
+        },
+        "detalle3":{
+            "lugar":"Alberdi & Oliden",
+            "hermano": "Ester L, Estela P y Juan Lopez",
+            "horario": "14:30hs a 16:30hs",
+            "notas" :" De 16:30 a 18:30 se cambia los hermanos",
+            "segundoLugar":{
+                "lugar":"Alberdi & Oliden",
+                "hermano": "Laura M, Ana V y Susana B",
+                "horario": "16:30 a 18:30hs",
+                "notas" :"No hay notas"
+            }
+        }
+    },
+    {
+        "dia": "Viernes",
+        "detalle": {
+            "lugar": "Alberdi & Larrazabal",
+            "hermano": "Norma S, Mirta F, Ana V",
+            "horario": "No especificado",
+            "notas":"No hay notas"
+        },
+        "detalle2":{
+            "lugar":"Plaza Los Andes",
+            "hermano": "Laura A, Monica C y Delia",
+            "horario": "17 a 19hs",
+            "notas" :"No hay notas"
+        }
+    },
+    {
+        "dia": "Sabado",
+        "detalle": {
+            "lugar": "Alberdi & Larrazabal",
+            "hermano": "Elias y Rosario",
+            "horario": "10 a 12hs",
+            "notas":"No hay notas"
+        },
+        "detalle2":{
+            "lugar":"Alberdi & Murguiondo",
+            "hermano": "No especificado",
+            "horario": "12 a 13:30hs",
+            "notas" :"No hay notas"
+        }
+
+    }
+]

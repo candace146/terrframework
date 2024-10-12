@@ -8,7 +8,12 @@
     <title>Cargar, modificar territorios</title>
 </head>
 <body>
-    <a href="{{ url_for('login')}}"> Ingresar </a>
+    {% if show %}
+        <a class="login" style="display:none;" href="{{ url_for('login')}}">Ingresar</a>
+        <a class="back-button "href="{{ url_for('home')}}"> Volver a Home</a>
+    {% else %}
+        <a class="login" href="{{ url_for('login')}}"> Ingresar </a>
+    {% endif %}
     <h1>Informe de territorios</h1>
     <div class="info-block">
         <p>Esto sirve para que puedas subir los territorios y nosotros ya poder trabajar mejor, sabiendo que se hizo y que no. Gracias por tu ayuda.</p>
